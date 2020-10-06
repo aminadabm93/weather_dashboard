@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     
     <title>Weather Dashboard</title>
 </head>
@@ -26,22 +26,23 @@
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button" id="search-button">
                             <!-- search button logo -->
-                            <i class="fas fa-search">hihihi</i> 
+                            <i class="fas fa-search"></i> 
                         </button>
                     </div>
                 </div>
                 <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear history</button>
-                <form id="history"></form>
+                <!-- old cities will go here -->
+                <form id="history-list"></form>
             </div>
-            <!-- right hand side of page w/ current info and 5 day cast -->
+            <!-- right hand side of page -->
             <div class="col-8">
                 <div class="row mr-0">
                     <div class="col-12 border border-dark m-3 rounded">
-
+                        <!-- current city, date, and pic   -->
                         <div class="row">
                             <div class="col-12">
                                 <span id="city-name" class="city-name align-middle"></span>
-                                <img id="current-pic" src="placeholder" alt="">
+                                <img id="current-pic" src="" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -73,17 +74,17 @@
                     <div class="col-12">
                         <h3>5-Day Forecast</h3>
                     </div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded" id="day1"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded" id="day2"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded" id="day3"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded" id="day4"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded" id="day5"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
