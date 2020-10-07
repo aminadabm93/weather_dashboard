@@ -3,6 +3,7 @@ var hist = [];
 
 
 function displayCurrent(city){
+  $("#city-input").val("");
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=" + APIKey;
 
   // Here we run our AJAX call to the OpenWeatherMap API
@@ -33,7 +34,6 @@ function displayCurrent(city){
       $.ajax({
         url: queryURL2,
         method: "GET"}).then(function(response2){
-          console.log(response2);
           $("#UV-index").text("UV Index: "+response2.daily[0].uvi);
           //for loop to create 5 day forecast
           //need date
@@ -61,12 +61,33 @@ function displayCurrent(city){
       });
     
 }
+function renderHistory(){
+  //create list of buttons from history array
+  var listEl = $("#history-list");
 
+  var histButton = $("<button type=\"button\">"+$("#city-input").val()+"</button>");
+  listEl.append(histButton);
+  listEl.append($("<br>"));
+  histButton.on("click",function(){
+    displayCurrent(histButton.text());
+  });
+
+}
 //read from input once the search button is clicked
 $("#search-button").on("click",function(){
   var queryCity = $("#city-input").val();
-  hist.push(queryCity);
+  if(!hist.includes($("#city-input").val())){
+    console.log("this");
+    hist.push(queryCity);
+  }
+  
+  renderHistory();
   displayCurrent(queryCity);
+});
+
+$("#clear-history").on("click",function(){
+  hist=[];
+  document.getElementById("history-list").innerHTML ="";
 });
 //use ajax to read data from city 
 // display city and today's date and picture 
