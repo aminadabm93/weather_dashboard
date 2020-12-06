@@ -61,6 +61,7 @@ function displayCurrent(city){
       });
     
 }
+
 function renderHistory(){
   //create list of buttons from history array
   var listEl = $("#history-list");
